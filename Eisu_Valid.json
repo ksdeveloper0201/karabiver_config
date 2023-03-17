@@ -1,0 +1,266 @@
+{
+  "title": "Eisu Cursor",
+  "rules": [
+    {
+      "description": "Change EISU to arrow & shortcutkeys",
+      "manipulators": [
+        {
+          //////////////////////////////////////////////////
+          // 軸となるキーの設定 ここでは「英数」を軸にしている。 //
+          //////////////////////////////////////////////////
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu" // 軸を変更する場合は「japanese_eisuu」を変更する
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "eisuu",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "eisuu",
+                "value": 0
+              }
+            }
+          ]
+          /*　英数を1回だけ押した場合は「英数」として動作する  「英数＋１＝英数」がやりにくい場合はここを有効にしてください
+          ,"to_if_alone": [
+          { 
+              "key_code": "japanese_eisuu"
+            }
+          ]
+*/
+        },
+        /////////////////////////////////////////////////
+        // 以降は「軸＋キー」で目的の動作を行うためのコード   //
+        /////////////////////////////////////////////////
+
+        // 1
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a", // 軸＋j
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1" // 1
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        // 2
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s", // 軸＋k
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2" //2
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        // 3
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d", // 軸＋i
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3" //3
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        // 4
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4" // 4
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        //5
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5" //5
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        //6
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6" //6
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        //7
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7" //7
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        //8
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8" //8
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        //9
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9" //9
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        //0
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0" //0
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

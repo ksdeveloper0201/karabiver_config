@@ -1,0 +1,654 @@
+{
+  "title": "kana Cursor",
+  "rules": [
+    {
+      "description": "Change kana to arrow & shortcutkeys",
+      "manipulators": [
+        {
+          //////////////////////////////////////////////////
+          // 軸となるキーの設定 ここでは「英数」を軸にしている。 //
+          //////////////////////////////////////////////////
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana" // 軸を変更する場合は「japanese_eisuu」を変更する
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "kana",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "kana",
+                "value": 0
+              }
+            }
+          ],
+          //　英数を1回だけ押した場合は「英数」として動作する  「英数＋１＝英数」がやりにくい場合はここを有効にしてください
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        /////////////////////////////////////////////////
+        // 以降は「軸＋キー」で目的の動作を行うためのコード   //
+        /////////////////////////////////////////////////
+
+        // 左キー「←」
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h", // 軸＋j
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow" // 左キー「←」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        // 下キー 「↓」
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j", // 軸＋k
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow" // 下キー「↓」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        // 上キー「↑」
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k", // 軸＋i
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow" // 上キー「↑」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        // 右キー「→」
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow" // 右キー「→」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket" // 「[」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //]キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket" //「+」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        }, //ここから更新
+        //@キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "2", //「@」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //=キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign" //「=」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //+キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign", //「+」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //*キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "8", //「*」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //-キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen" //「-」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //_キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "hyphen", //「_」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //%キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "5", //「%」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //(キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9", //「(」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //)キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "0", //「+」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //{キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "open_bracket", //「{」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //}キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket", //「+」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //#キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3", //「+」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //$キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "4", //「$」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //"キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //'キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "quote", //「$」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //~キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "grave_accent_and_tilde" //「~」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //|キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash", //「$」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //&キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "7", //「$」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //!キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "1", //「$」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //^キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "6", //「$」
+              "modifiers": ["shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        },
+        //\キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q", // 軸＋l
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash" //「$」
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "kana",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

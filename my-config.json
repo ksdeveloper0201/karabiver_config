@@ -1,0 +1,22 @@
+{
+  "title": "自分用",
+  "rules": [
+    {
+      "description": "Change かなキー + i/j/k/l to Arrows",
+      "manipulators": [
+        //-キー
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket" // 軸＋l
+          },
+          "to": [
+            {
+              "key_code": "hyphen" // 「[」
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
